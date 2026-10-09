@@ -1,0 +1,184 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 32px 16px;
+    display: grid;
+    place-items: center;
+    color: #24364b;
+    background: linear-gradient(135deg, #eaf4ff, #f8f1ff);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.apology-card {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 560px);
+    padding: 36px clamp(22px, 6vw, 48px);
+    border: 1px solid #ffffff;
+    border-radius: 24px;
+    background: rgb(255 255 255 / 92%);
+    box-shadow: 0 20px 60px rgb(64 101 155 / 16%);
+    text-align: center;
+}
+
+.heart-icon {
+    font-size: 2.6rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+h1 {
+    margin: 8px 0;
+    color: #2c6fbd;
+    font-size: clamp(2rem, 8vw, 3rem);
+}
+
+.subtitle {
+    margin: 0 0 24px;
+    color: #63758a;
+}
+
+.apology-gif {
+    display: block;
+    width: min(100%, 260px);
+    max-height: 220px;
+    margin: 0 auto 22px;
+    border-radius: 16px;
+    object-fit: contain;
+}
+
+.gif-fallback {
+    margin: 0 auto 22px;
+    color: #477eb8;
+    font-size: 2.5rem;
+}
+
+.gif-fallback p {
+    margin: 4px 0 0;
+    font-size: 1rem;
+}
+
+.message {
+    line-height: 1.7;
+    text-align: left;
+}
+
+button,
+.file-label {
+    display: inline-block;
+    border: 0;
+    border-radius: 999px;
+    padding: 12px 20px;
+    color: white;
+    background: #4388d2;
+    font: inherit;
+    font-weight: 650;
+    cursor: pointer;
+    transition: background 150ms ease, transform 150ms ease;
+}
+
+button:hover:not(:disabled),
+.file-label:hover {
+    transform: translateY(-1px);
+    background: #2e70b8;
+}
+
+button:focus-visible,
+.music-section:focus-within .file-label {
+    outline: 3px solid #9ccaff;
+    outline-offset: 3px;
+}
+
+button:disabled {
+    cursor: default;
+    opacity: 0.8;
+}
+
+.response {
+    min-height: 1.5em;
+    color: #2c6fbd;
+    font-weight: 600;
+}
+
+.music-section {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    padding: 18px;
+    border-radius: 16px;
+    background: #f1f7ff;
+}
+
+.music-section p {
+    margin: 0;
+    font-weight: 650;
+}
+
+.file-label {
+    padding: 9px 16px;
+    font-size: 0.9rem;
+}
+
+#musicFile {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+audio {
+    width: 100%;
+}
+
+audio[hidden],
+[hidden] {
+    display: none !important;
+}
+
+small,
+footer {
+    color: #718095;
+}
+
+footer {
+    margin-top: 28px;
+    font-size: 0.9rem;
+}
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -40px;
+    color: rgb(67 136 210 / 24%);
+    animation: float-up linear forwards;
+}
+
+@keyframes heartbeat {
+    50% { transform: scale(1.12); }
+}
+
+@keyframes float-up {
+    to { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
